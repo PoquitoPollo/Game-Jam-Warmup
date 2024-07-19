@@ -1,0 +1,89 @@
+[gd_scene load_steps=10 format=3 uid="uid://cii6e8p81s3j1"]
+
+[ext_resource type="PackedScene" uid="uid://kow681l3tuwy" path="res://Scenes/player.tscn" id="1_x5bci"]
+[ext_resource type="PackedScene" uid="uid://dho6okr7pt505" path="res://Scenes/enemy.tscn" id="2_els7a"]
+[ext_resource type="PackedScene" uid="uid://cmiem37o2pt6w" path="res://Scenes/spawner.tscn" id="3_0ue7o"]
+[ext_resource type="PackedScene" uid="uid://ntbivl3nxqd7" path="res://Scenes/relocator.tscn" id="4_hya8q"]
+[ext_resource type="PackedScene" uid="uid://bcqjd1rdyjs43" path="res://Scenes/deleter.tscn" id="4_xgb6y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jirbx"]
+albedo_color = Color(0.12549, 0.243137, 0.0235294, 1)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4fs7c"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_4e7wa"]
+sky_material = SubResource("ProceduralSkyMaterial_4fs7c")
+
+[sub_resource type="Environment" id="Environment_b6nrv"]
+background_mode = 2
+sky = SubResource("Sky_4e7wa")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="World" type="Node3D"]
+
+[node name="Idle Enemies" type="Node3D" parent="."]
+
+[node name="Enemy3" parent="Idle Enemies" instance=ExtResource("2_els7a")]
+transform = Transform3D(1, 0, 1.74846e-07, 0, 1, 0, -1.74846e-07, 0, 1, -17.4138, 0, 16.3315)
+stationary = true
+
+[node name="Enemy2" parent="Idle Enemies" instance=ExtResource("2_els7a")]
+transform = Transform3D(1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, -19.3832, 0, 14.1593)
+stationary = true
+
+[node name="Enemy" parent="Idle Enemies" instance=ExtResource("2_els7a")]
+transform = Transform3D(-0.999999, 0.000544236, -0.000946408, 0.000541379, 0.999995, 0.00300186, 0.000948046, 0.00300134, -0.999995, -17.1351, 0, 12.1954)
+stationary = true
+
+[node name="Environment" type="Node3D" parent="."]
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 3, -28)
+use_collision = true
+size = Vector3(24, 8, 2)
+material = SubResource("StandardMaterial3D_jirbx")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -28, 3, -22)
+use_collision = true
+size = Vector3(14, 8, 2)
+material = SubResource("StandardMaterial3D_jirbx")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16, 3, -16)
+use_collision = true
+size = Vector3(24, 8, 2)
+material = SubResource("StandardMaterial3D_jirbx")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Environment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+use_collision = true
+size = Vector3(60, 2, 60)
+material = SubResource("StandardMaterial3D_jirbx")
+
+[node name="Skybox" type="WorldEnvironment" parent="Environment"]
+environment = SubResource("Environment_b6nrv")
+
+[node name="Sunlight" type="DirectionalLight3D" parent="Environment"]
+transform = Transform3D(-0.866024, -0.433016, 0.250001, 0, 0.499998, 0.866026, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Spawners&Deleters" type="Node3D" parent="."]
+
+[node name="Spawner" parent="Spawners&Deleters" instance=ExtResource("3_0ue7o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, 16)
+
+[node name="Deleter2" parent="Spawners&Deleters" instance=ExtResource("4_xgb6y")]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, -0.0106201, -3, -2.16182)
+
+[node name="Deleter" parent="Spawners&Deleters" instance=ExtResource("4_xgb6y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -16)
+
+[node name="Relocator" parent="Spawners&Deleters" instance=ExtResource("4_hya8q")]
+transform = Transform3D(40, 0, 0, 0, 1, 0, 0, 0, 40, 0, -4.50185, -2.12072)
+
+[node name="Player" parent="." instance=ExtResource("1_x5bci")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

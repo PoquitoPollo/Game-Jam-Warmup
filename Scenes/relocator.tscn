@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ntbivl3nxqd7"]
+
+[ext_resource type="Script" path="res://Scripts/Relocator.gd" id="1_y7wvi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tk5qb"]
+
+[node name="Relocator" type="Area3D"]
+script = ExtResource("1_y7wvi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 1, 0)
+shape = SubResource("BoxShape3D_tk5qb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered" flags=18]

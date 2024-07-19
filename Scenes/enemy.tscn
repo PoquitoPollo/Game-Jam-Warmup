@@ -1,0 +1,232 @@
+[gd_scene load_steps=29 format=3 uid="uid://dho6okr7pt505"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_dx55c"]
+[ext_resource type="Script" path="res://Scripts/SpriteRenderer.gd" id="3_lrfiq"]
+[ext_resource type="Texture2D" uid="uid://xaqu37xkv68x" path="res://Sprites/Sprite Sheet Test1.png" id="4_qwmat"]
+[ext_resource type="Texture2D" uid="uid://ewpsnvdly1jq" path="res://Sprites/front-run.png" id="5_eixii"]
+[ext_resource type="Texture2D" uid="uid://6r27shcskykj" path="res://Sprites/back-run.png" id="6_dvclq"]
+[ext_resource type="Texture2D" uid="uid://bc1fxuutl5wjc" path="res://Sprites/left-run.png" id="7_aluxa"]
+[ext_resource type="Texture2D" uid="uid://bsumw2grd0g15" path="res://Sprites/right-run.png" id="8_vuwxk"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dgfev"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tq6y"]
+atlas = ExtResource("4_qwmat")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b5nce"]
+atlas = ExtResource("5_eixii")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rcwai"]
+atlas = ExtResource("5_eixii")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b7wmf"]
+atlas = ExtResource("5_eixii")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ces5n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tq6y")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b5nce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcwai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b7wmf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rcwai")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lwl7k"]
+atlas = ExtResource("4_qwmat")
+region = Rect2(96, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ugu5"]
+atlas = ExtResource("6_dvclq")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qteyp"]
+atlas = ExtResource("6_dvclq")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1he0i"]
+atlas = ExtResource("6_dvclq")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7vlvs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lwl7k")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ugu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qteyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1he0i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qteyp")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3413"]
+atlas = ExtResource("4_qwmat")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ggpv"]
+atlas = ExtResource("7_aluxa")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yegc1"]
+atlas = ExtResource("7_aluxa")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vlc12"]
+atlas = ExtResource("7_aluxa")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_66sxe"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3413")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ggpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yegc1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vlc12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yegc1")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0nkrf"]
+atlas = ExtResource("4_qwmat")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1kfi"]
+atlas = ExtResource("8_vuwxk")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0w1p"]
+atlas = ExtResource("8_vuwxk")
+region = Rect2(32, 0, 32, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rytht"]
+atlas = ExtResource("8_vuwxk")
+region = Rect2(64, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dp7vb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0nkrf")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1kfi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0w1p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rytht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0w1p")
+}],
+"loop": true,
+"name": &"run",
+"speed": 8.0
+}]
+
+[node name="Enemy" type="CharacterBody3D" groups=["Enemies"]]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("1_dx55c")
+SPEED = 4.0
+
+[node name="EnemyCapsule" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dgfev")
+
+[node name="Positions" type="Node3D" parent="."]
+script = ExtResource("3_lrfiq")
+
+[node name="Front" type="AnimatedSprite3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -0.1)
+pixel_size = 0.03
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_ces5n")
+animation = &"run"
+
+[node name="Back" type="AnimatedSprite3D" parent="Positions"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0.1)
+visible = false
+pixel_size = 0.03
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_7vlvs")
+animation = &"run"
+
+[node name="Left" type="AnimatedSprite3D" parent="Positions"]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.075, 1, 0)
+visible = false
+pixel_size = 0.03
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_66sxe")
+animation = &"run"
+
+[node name="Right" type="AnimatedSprite3D" parent="Positions"]
+transform = Transform3D(-4.37113e-08, 7.62907e-11, 1, 0.00174533, 0.999999, -5.08867e-18, -0.999999, 0.00174533, -4.37114e-08, 0.075, 1, 0)
+visible = false
+pixel_size = 0.03
+texture_filter = 2
+sprite_frames = SubResource("SpriteFrames_dp7vb")
+animation = &"run"
